@@ -1,0 +1,264 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAP AI Education Generator</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            width: 100%;
+        }
+
+        main {
+            width: 80%;
+            padding: 20px;
+            background-color: white;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        select, textarea, input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #27ae60;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #output {
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+
+        #video-preview {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        #video-preview video {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>TAP AI Education Generator</h1>
+    </header>
+
+    <main>
+        <div class="input-group">
+            <label for="subject">Select Subject:</label>
+            <select id="subject">
+                <option value="Visual Arts">Visual Arts</option>
+                <option value="Performing Arts">Performing Arts</option>
+                <option value="Coding">Coding</option>
+                <option value="Financial Literacy">Financial Literacy</option>
+                <option value="Science">Science</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label for="topic">Topic:</label>
+            <input type="text" id="topic" placeholder="Enter topic">
+        </div>
+
+        <div class="input-group">
+            <label for="level">Level:</label>
+            <select id="level">
+                <option value="Beginner">Beginner</option>
+                <option value="Intermediate">Intermediate</option>
+                <option value="Advanced">Advanced</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label for="instructions">Special Instructions:</label>
+            <textarea id="instructions" placeholder="Enter any specific instructions"></textarea>
+        </div>
+
+        <button id="generateButton">Generate Content</button>
+
+        <div id="output">
+            </div>
+
+        <div id="video-preview">
+            </div>
+    </main>
+
+    <script>
+        document.getElementById('generateButton').addEventListener('click', function() {
+            const subject = document.getElementById('subject').value;
+            const topic = document.getElementById('topic').value;
+            const level = document.getElementById('level').value;
+            const instructions = document.getElementById('instructions').value;
+
+            // Simulate AI content generation (replace with actual API call)
+            const generatedContent = simulateAIContentGeneration(subject, topic, level, instructions);
+
+            document.getElementById('output').innerHTML = `<p>${generatedContent.text}</p>`;
+
+            // Simulate video preview (replace with actual video URL)
+            if (generatedContent.videoUrl) {
+                document.getElementById('video-preview').innerHTML = `<video controls src="${generatedContent.videoUrl}"></video>`;
+            } else {
+                document.getElementById('video-preview').innerHTML = '';
+            }
+        });
+
+        function simulateAIContentGeneration(subject, topic, level, instructions) {
+            // This is a placeholder for actual AI content generation logic
+            // In a real application, this would involve making an API call to an AI service
+            let text = `Generated content for ${topic} in ${subject} at ${level} level.`;
+            let videoUrl = null;
+
+            if (subject === 'Coding') {
+                text += `\n\nHere's a code snippet: \n\n\`\`\`python\nprint("Hello, TAP!")\n\`\`\``;
+            }
+
+            if (subject === 'Visual Arts') {
+                videoUrl = "https://www.w3schools.com/html/mov_bbb.mp4"; //example video url
+            }
+
+            if(subject === 'Performing Arts'){
+                videoUrl = "https://www.w3schools.com/html/mov_bbb.mp4";
+            }
+
+            if(subject === 'Financial Literacy'){
+                text += `\n\nKey Concepts: Budgeting, Saving, Investing.`;
+            }
+
+            if(subject === 'Science'){
+                text += `\n\nExplanation of the scientific method.`;
+            }
+
+            return { text: text, videoUrl: videoUrl };
+        }
+    </script>
+</body>
+</html>-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Video Generator</title>
+    <link rel="stylesheet" href="proj.css">
+</head>
+<body>
+    <div class="container">
+        <h1>AI Powered Educational Video Generator</h1>
+        <div class="form-container">
+            <label for="topic">Topic:</label>
+            <input type="text" id="topic" placeholder="e.g., Impressionism, Python Basics, Budgeting 101">
+
+            <label for="subjectArea">Subject Area:</label>
+            <select id="subjectArea">
+                <option value="visual arts">Visual Arts</option>
+                <option value="performing arts">Performing Arts</option>
+                <option value="coding">Coding</option>
+                <option value="financial literacy">Financial Literacy</option>
+                <option value="personalized">Personalized Learning</option>
+            </select>
+
+            <label for="targetAudience">Target Audience:</label>
+            <input type="text" id="targetAudience" placeholder="e.g., High School Students, Beginners, Adults">
+
+            <label for="duration">Desired Video Length (minutes):</label>
+            <input type="number" id="duration" min="1" max="30" value="5">
+
+            <button id="generateButton">Generate Video Content</button>
+        </div>
+
+        <div id="output-container" class="output-container">
+            <h2>Generated Video Content</h2>
+            <div id="script-section">
+                <h3>Script</h3>
+                <pre id="script"></pre>
+            </div>
+            <div id="visuals-section">
+                <h3>Visual Suggestions</h3>
+                <pre id="visualSuggestions"></pre>
+            </div>
+             <div id="quiz-section">
+                <h3>Quiz Questions</h3>
+                <pre id="quizQuestions"></pre>
+            </div>
+            const apiKey = "YOUR_OPENAI_API_KEY";  // Replace with your API key
+
+async function chatWithGPT(userMessage) {
+    const apiUrl = "https://api.openai.com/v1/chat/completions";
+
+    const requestBody = {
+        model: "gpt-4", // You can change it to "gpt-3.5-turbo" for a cheaper option
+        messages: [{ role: "system", content: "You are a helpful assistant." },
+                   { role: "user", content: userMessage }],
+        max_tokens: 100,
+        temperature: 0.7
+    };
+
+    try {
+        const response = await fetch(apiUrl, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": Bearer ${apiKey}
+            },
+            body: JSON.stringify(requestBody)
+        });
+
+        const data = await response.json();
+        console.log("GPT Response:", data.choices[0].message.content);
+        return data.choices[0].message.content;
+    } catch (error) {
+        console.error("Error communicating with OpenAI:", error);
+    }
+}
+
+// Example usage:
+chatWithGPT("Hello, how are you?").then(response => {
+    document.getElementById("chatOutput").innerText = response;
+});
+        </div>
+    </div>
+
+    <script src="proj.js"></script>
+</body>
+</html>
